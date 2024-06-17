@@ -332,7 +332,9 @@ $btnUpdate.Add_Click({Install-WindowsUpdate})
 $btnDown.Add_Click({shutdown /s})
 $btnReboot.Add_Click({shutdown /r})
 $btnSleep.Add_Click({[System.Windows.Forms.Application]::SetSuspendState([System.Windows.Forms.PowerState]::Suspend, $false, $true)})
-$btnForce.Add_Click({Stop-Computer -ComputerName localhost})
+$btnForce.Add_Click({function ForceFully-ShutDownComputer {
+                         Stop-Computer -ComputerName localhost
+                    }})
 $btnRename.Add_Click({$newName = $txtRename.Text
     if ($newName -ne "") {
     #Muuda arvuti nimi ära
