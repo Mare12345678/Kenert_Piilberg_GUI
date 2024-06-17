@@ -11,13 +11,13 @@ $TabPageObject = [System.Windows.Forms.TabPage]
 $TabControlObject = [System.Windows.Forms.TabControl]
 $TextBoxObject = [System.Windows.Forms.Textbox]
 
-#Set up base form
+#Seadistage alusvorm
 $RajarForm=New-Object $FormObject
 $RajarForm.ClientSize='1000,600'
 $RajarForm.Text='GUI Toolkit'
 $RajarForm.BackColor="#ffffff"
 
-#Building the form
+#Vormi ehitamine
 $lbltitle=New-Object $LabelObject
 $lbltitle.Text='THIS ACTION CAN NOT BE UNDONE!!1 '
 $lbltitle.AutoSize=$true
@@ -41,7 +41,7 @@ $ddlService=New-Object $ComboBoxObject
 $ddlService.width='300'
 $ddlService.Location=New-Object System.Drawing.Point(10,10) 
 
-#Load the drop down list for services
+#Laadige teenuste rippmenüü
 Get-Service | ForEach-Object {$ddlService.Items.Add($_.Name)}
 
 $ddlService.text='Pick a service lollpea'
@@ -238,8 +238,6 @@ $textboxInput.Add_KeyDown({
     }
 })
 
-$RajarForm.Controls.AddRange(@($lbltitle,$lbltitle2,$lblForName,$lblName,$lblForStatus,$lblStatus,$btnHello,$btnTemp,$ddlService,$btnBloatware,$btnUpdate,$btnDown,$btnReboot,$btnLogout,$btnDownload,$checkboxFirefox,$checkbox7zip,$checkboxChrome,$checkboxVisual,$checkboxPutty))
-
 #Skripti koht
 $cli_textbox = New-Object $TextBoxObject
 $cli_textbox.Text='Sisesta oma skript siia'
@@ -314,7 +312,7 @@ $TabPage6=New-Object $TabPageObject
 $TabPage6.Text="Script"
 $TabPage6.BackColor="#afc2d2"
 
-#TabControl Form
+#Tabi vorm
 $RajarForm.Controls.Add($TabControl)
 
 ##Loogika koht
@@ -377,11 +375,10 @@ function GetServiceDetails{
 }          
 
 ##Lisage funktsioone
-
 $ddlService.Add_SelectedIndexChanged({GetServiceDetails})
 
-#Display the form
+#Kuva vormi
 $RajarForm.ShowDialog()
 
-##Cleans up the form
+##Puhastab vormi
 $RajarForm.Dispose()
