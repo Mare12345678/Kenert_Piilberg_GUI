@@ -111,11 +111,11 @@ $btnReboot.Font='Verdana,14'
 $btnReboot.Location=New-Object System.Drawing.Point(10,270)
 
 #Väljalogimis nupp
-$btnLogout=New-Object $ButtonObject
-$btnLogout.Text='Go to sleep'
-$btnLogout.AutoSize=$true
-$btnLogout.Font='Verdana,14'
-$btnLogout.Location=New-Object System.Drawing.Point(10,330)
+$btnSleep=New-Object $ButtonObject
+$btnSleep.Text='Go to sleep'
+$btnSleep.AutoSize=$true
+$btnSleep.Font='Verdana,14'
+$btnSleep.Location=New-Object System.Drawing.Point(10,330)
 
 #Force shutdown nupp
 $btnForce=New-Object $ButtonObject
@@ -286,7 +286,7 @@ $TabControl=New-Object $TabControlObject
 $TabControl.Size='1260,1000'
 $TabControl.Location=New-Object System.Drawing.Point(10,10)
 $TabControl.TabPages.AddRange(@($TabPage1, $TabPage2,$TabPage3,$TabPage4,$TabPage5,$TabPage6))
-$TabPage1.Controls.AddRange(@($lbltitle,$btnHello,$btnTemp,$btnBloatware,$btnUpdate,$btnDown,$btnReboot,$btnLogout,$btnSleep,$btnForce,$btnTime,$btnHyperV))
+$TabPage1.Controls.AddRange(@($lbltitle,$btnHello,$btnTemp,$btnBloatware,$btnUpdate,$btnDown,$btnReboot,$btnSleep,$btnForce,$btnTime,$btnHyperV))
 $TabPage2.Controls.AddRange(@($ddlService,$lblForName,$lblName,$lblForStatus,$lblStatus))
 $TabPage3.Controls.AddRange(@($checkboxFirefox,$checkbox7zip,$checkboxChrome,$checkboxPutty,$checkboxVisual,$btnDownload,$lbltitle2))
 $TabPage4.Controls.AddRange(@($textboxRename,$lbltitle3,$btnRename))
@@ -332,7 +332,7 @@ $btnUpdate.Add_Click({Install-WindowsUpdate})
 $btnDown.Add_Click({shutdown /s})
 $btnReboot.Add_Click({shutdown /r})
 $btnSleep.Add_Click({[System.Windows.Forms.Application]::SetSuspendState([System.Windows.Forms.PowerState]::Suspend, $false, $true)})
-$btnForce.Add_Click({shutdown /f})
+$btnForce.Add_Click({Stop-Computer -ComputerName localhost})
 $btnRename.Add_Click({$newName = $txtRename.Text
     if ($newName -ne "") {
     #Muuda arvuti nimi ära
