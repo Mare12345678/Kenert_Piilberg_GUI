@@ -248,7 +248,7 @@ $cli_textBox.Multiline=$true
 $cli_textBox.ScrollBars='Vertical'
 $cli_textBox.WordWrap=$true
 $cli_textbox.ForeColor='#ffffff'
-$cli_textbox.BackColor='#686868'
+$cli_textbox.BackColor='#fadadd'
 
 $PsGuiTab3.Controls.Add($cli_textbox)
 
@@ -261,7 +261,7 @@ $cli_output.Multiline=$true
 $cli_output.ScrollBars='Vertical'
 $cli_output.WordWrap=$true
 $cli_output.ForeColor='#ffffff'
-$cli_output.BackColor='#686868'
+$cli_output.BackColor='#fadadd'
 $PsGuiTab3.Controls.Add($cli_output)
 
 $cli_run_script_button=New-Object $ButtonObject
@@ -310,7 +310,7 @@ $TabPage5.Text="CLI"
 $TabPage5.BackColor="#93e9be"
 $TabPage6=New-Object $TabPageObject
 $TabPage6.Text="Script"
-$TabPage6.BackColor="#afc2d2"
+$TabPage6.BackColor="#f08080"
 
 #Tabi vorm
 $RajarForm.Controls.Add($TabControl)
